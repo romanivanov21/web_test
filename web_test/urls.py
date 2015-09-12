@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^hello/$', views.hello),
   	url(r'^hello/dt/(-?\d{1,2})/$', views.cur_datetime),
+  	url(r'^price/$', views.prices)
 ]
