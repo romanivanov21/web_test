@@ -1,21 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>{{ title }}</title>
+	<title>{{ title }}</title> <!-- название страницы -->
 </head>
 <body>
-	<h1>{{ title }}</h1>
-
-	<table border="1">
-	{% for item in goods %}
+	<h1>{{ title }}</h1> <!--жирным шрифтом меню:-->
+	<table border="1"> <!-- начало таблицы -->
+	<tr> <!-- шапка таблицы -->
+		<th>&nbsp;</th><!-- &nbsp; - пустой-->
+		<th>Наиметование</th>
+		<th>Цена</th> 
+		<th>Количество</th>
+	</tr> <!-- конец шабки таблицы -->
+	{% for item in goods reversed %}    <!-- цикл в шаблонизаторе, reversed сортировка в шаблонизаторе в обратном порядке -->
 		<tr>
+			<td>
+				{% if forloop.first %} <!-- первый номер -->
+					<span style="color:green"> {{forloop.counter}} </span> <!-- если первый номер, то зелёный-->
+				{% elif forloop.last %}
+					<span style="color:blue"> {{forloop.counter}} </span>  <!-- если последний номер, то синий-->
+				{% else %}
+					<span style="color:black"> {{forloop.counter}} </span> <!-- все остальные черные-->
+				{% endif %}
+			</td> <!-- номер строки --> 
+			
 			<td>{{item.name}} </td>
 			<td>{{item.price}}</td>
-			<td>{{item.unit}} </td>
+
+			{% ifequal item.unit 'шт.' %} <!-- если количество равно шт.-->
+				<td> 
+					<span style="color:red"> {{item.unit}} </span> <!-- вывести красным цветом-->
+				</td>
+			{% else %} <!-- иначе -->
+				<td>{{item.unit}} </td> 
+			{% endifequal %}
+
 		</tr>
-	{% empty %}
-		<tr><td colspan='4'> List is empty </td>></tr>
-	{% endfor %}
+	{% empty %} <!-- если список пустой -->
+		<tr><td colspan='4'> List is empty! </td>></tr>
+	{% endfor %} <!-- конец цикла -->
 	</table>
 	
 </body>
