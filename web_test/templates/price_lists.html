@@ -24,9 +24,9 @@
 				{% endif %}
 			</td> <!-- номер строки --> 
 			
-			<td>{{item.name}} </td>
-			<td>{{item.price}}</td>
-
+			<td>{{item.name}}</td>
+			<td>{{item.uint_to_kg}}</td> <!-- метод uint_to_kg меняет значение объекта uint-->
+										 <!-- если атрибут alters_data равна True, вызов метода из шаблона запрещена -->
 			{% ifequal item.unit 'шт.' %} <!-- если количество равно шт.-->
 				<td> 
 					<span style="color:red"> {{item.unit}} </span> <!-- вывести красным цветом-->

@@ -2,6 +2,7 @@
 
 from django.http import HttpResponse, Http404
 from django.shortcuts import render_to_response
+from web_test.good import Good
 import datetime
 
 #controller for hello world
@@ -25,21 +26,9 @@ def cur_datetime( request, offset ) :
 def prices( request ) :
 	title = u'меню:'
 	goods = [
-		{ 'name': u'Котлеты по-киевски',
-		  'price': u'80.0р.',
-		  'unit': u'шт.',
-		},
-		{ 'name': u'Котлеты по-москвоски',
-		  'price': u'95.70р.',
-		  'unit': u'шт.',
-		},
-		{ 'name': u'Макароны',
-		  'price': u'20.0р.',
-		  'unit': u'гр.',
-		},
-		{ 'name': u'Суп',
-		  'price': u'55.0р.',
-		  'unit': u'порция',
-		},
+		Good ( name = u'Котлеты по-киевски',   price = 80.0,  unit = u'шт.'   ),
+		Good ( name = u'Котлеты по-москGоски', price = 95.70, unit = u'шт.'   ),
+		Good ( name = u'Макароны',             price = 20.0,  unit = u'гр.'   ),
+		Good ( name = u'Суп',                  price = 55.0,  unit = u'порция'),
 	]
 	return render_to_response( 'price_lists.html', locals() )
