@@ -23,6 +23,18 @@ def cur_datetime( request, offset ) :
 	except ValueError:
 		raise Http404
 
+def get_deadline() :
+	date  = datetime.datetime.now()
+	year  = date.year
+	month = date.month + 1
+
+	if month > 12 :
+		month = 1
+		year = year + 1
+
+	date = datetime.datetime( year, month, day = 1)
+	return date
+
 def prices( request ) :
 	title = u'меню:'
 	goods = [
@@ -31,4 +43,5 @@ def prices( request ) :
 		Good ( name = u'Макароны',             price = 20.0,  unit = u'гр.'   ),
 		Good ( name = u'Суп',                  price = 55.0,  unit = u'порция'),
 	]
-	return render_to_response( 'price_lists.html', locals() )
+	deadline = get_deadline()
+	return render_to_response( 'price_spec.html', locals() )
