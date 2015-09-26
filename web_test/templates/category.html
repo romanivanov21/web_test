@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Категории</title>
+</head>
+<body>
+	<h1>Категории</h1>
+	<ul>
+		{% for cat in catlist %}
+			<li><a href="/prices/cat/{{cat.slug}}/">{{cat.name}}</a></li>
+		{% empty %}
+			<li>Категорий нет</li>
+		{% endfor %}
+	</ul>
+</body>
+</html>
