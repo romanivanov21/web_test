@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Сохранить тег</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>Путь = </td><td>{{request.path}}</td>
+		</tr>
+		<tr>
+			<td>Полная строка = </td><td>{{request.get_full_path}}</td>
+		</tr>
+		<tr>
+			<td>Хост = </td><td>{{request.get_host}}</td>
+		</tr>
+		<tr>
+			<td>is_crypt = </td><td>{{request.is_secure}}</td>
+		</tr>
+		<tr>
+			<td>Бразер = </td><td>{{user_agent}}</td>
+		</tr>
+		<tr>
+			<td>Данные = </td><td>{{tagname}}</td>
+		</tr>
+	</table>
+</body>
+</html>

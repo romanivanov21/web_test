@@ -41,3 +41,12 @@ def one_good( request, good_slug ) :
 		return render_to_response(u'one_good.html', locals())
 	except Good.DoesNotExist :
 		raise Http404
+def new_tag( request ) :
+	return render_to_response(u'new_tag.html',locals())
+def save_tag( request ) :
+	user_agent = request.META['HTTP_USER_AGENT']
+	tagname = request.GET['tagname']
+	#will to be validate tagname
+	tag = Tag( name = tagname )
+	tag.save()
+	return render_to_response(u'tag_saved.html',locals())
