@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Описание товара</title>
+</head>
+<body>
+	<table border="1">
+	<tr>
+		<td>Наименование</td>
+		<td>{{good.name}}</td> 
+	</tr>
+	<tr>
+		<td>Цена</td>
+		<td>{{good.price}}</td>
+	</tr>
+	<tr>
+		<td>Ед. Измерения</td>
+		<td>{{good.unit}}</td>
+	</tr>
+	<tr>
+		<td>Категория</td>
+		<td>{{good.cath.name}}</td> 
+	</tr>
+	<tr>
+		<td>Язык описания</td>
+		{% for lang in langs %}
+			<td>{{lang.name}}</td>
+		{% endfor %}
+	</tr>
+	<tr>
+	<td>Теги</td>
+		{% for tag in tags %}
+			<td>{{tag.name}}</td> 
+		{% endfor %}
+	</tr>
+	</table>
+</body>
+</html>

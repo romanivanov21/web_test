@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Теги</title>
+</head>
+<body>
+	<h1>Теги</h1>
+	<ul>
+		{% for tag in taglist %}
+			<li><a href="/prices/tag/{{tag.slug}}/">{{tag.name}}</a></li>
+		{% empty %}
+			<li>Тегов нет</li>
+		{% endfor %}
+	</ul>
+</body>
+</html>

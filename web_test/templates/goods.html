@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Товары</title>
+</head>
+<body>
+	<h1>Товары</h1>
+
+	{% block subtitle %}
+		<p>Все</p>
+	{% endblock %}
+
+	<ul>
+		{% for good in goodlist %}
+			<td><li><a href="/prices/good/{{good.slug}}/">{{good.name}}</a></li></td>
+			<td>{{good.unit.name}}</td>
+			<td>{{good.price}}</td>
+		{% empty %}
+			<li>Нет товаров</li>
+		{% endfor %}
+	</ul>
+</body>
+</html>
