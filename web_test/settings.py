@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ['webtest.ru']
 
 # Application definition
 
+#django.contrib.openit (login vk.com)
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',

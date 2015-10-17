@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Тег</title>
+</head>
+<body>
+	<form method="GET" action="/prices/save_good">
+	<table>
+		<tr>
+			<td>Наименование</td>
+			<td><input type="text" name="gname" /></td>
+		</tr>
+		<tr>
+			<td>Цена</td>
+			<td><input type="text" name="gprice" /></td>
+		</tr>
+		<tr>
+			<td>Ед.измерения</td>
+			<td>
+				<select name="unit">
+				{% for unit in unitlist %}
+					<option value="{{unit.name}}">{{unit.name}}</option>
+				{% endfor %}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Категории</td>
+			<td>
+				<select name="cat">
+					{% for cat in catlist %}
+						<option value="{{cat.slug}}">{{cat.name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Язык</td>
+			<td>
+				<select name="lang">
+					{% for lang in langlist %}
+						<option value="{{lang.name}}">{{lang.name}}</option>
+					{% endfor %}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Теги</td>
+			<td><input type="text" name="tags" /></td>
+		</tr>
+	</table>
+	<input type="submit" value="Сохранить" />
+	</form>
+</body>
+</html>
