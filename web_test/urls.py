@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^hello/$', views.hello),
   	url(r'^hello/dt/(-?\d{1,2})/$', views.cur_datetime),
   	url(r'^prices/', include( 'prices.urls' )),
+    url(r'^gallery/', include( 'gallery.urls' )),
 ]
